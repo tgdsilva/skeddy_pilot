@@ -20,13 +20,20 @@ public class Log4jHelloWorld {
 	   file.setWarn("This is the warning message");
 	   **/
 		
-		WriteFirst first = new WriteFirst();
-		WriteTwice twice = new WriteTwice();
+		WriteFirst first = new WriteFirst("debugLogger");
+		WriteTwice twice = new WriteTwice("reportsLogger");
 		
 		//first.setDebugMessage("Test Debug");
 		//twice.setMessage("Test Report");
 		
-		System.out.println(first.getDebugLog());
-		System.out.println(twice.getReportsLogger());
+		
+		
+		//System.out.println(first.getDBName().getName());
+		//System.out.println(twice.getRPName().getName());
+		
+		first.setMessage("Teste",'F');
+		twice.setMessage("Teste", 'W');
+		
+		
 	}
 }

@@ -1,75 +1,67 @@
-package log4Pack;
+package logs.log4j;
 
 import org.apache.log4j.Logger;
 
-public class WriteFirst extends File{
-	
+public class WriteSecond extends File {
+
 	private String logName;
 
-	
-	
-	public WriteFirst(String logname) {
+	public WriteSecond(String logname) {
 		this.logName = logname;
 	}
 
-
 	// Only for LOG Classes
-	public final Logger getDebugLog() {
-		return Logger.getLogger(getLogName()); 
+	public final Logger getReportsLog() {
+		return Logger.getLogger(getLogName());
 	}
-	
-	
+
 	// MESSAGE TO BE WRITTEN IN THE FILE
 	public void setMessage(String message, char type) {
-		
 		// get the type of message that we want
 		// return the type
 		char tp = type;
+
 		
 		switch (tp) {
-		
+
 		// Debug
 		case 'D':
-			getDebugLog().debug(message); //
+			getReportsLog().debug(message); //
 			break;
-			
+
 		// Information
 		case 'I':
-			getDebugLog().info(message); //
+			getReportsLog().info(message); //
 			break;
-			
-	    // Error
+
+		// Error
 		case 'E':
-			getDebugLog().error(message); //
+			getReportsLog().error(message); //
 			break;
-			
+
 		// Warning
 		case 'W':
-			getDebugLog().warn(message); //
+			getReportsLog().warn(message); //
 			break;
-			
+
 		// Failure
 		case 'F':
-			getDebugLog().fatal(message); //
+			getReportsLog().fatal(message); //
 			break;
-		
+
 		default:
-			getDebugLog().info("Missing the type");
+			getReportsLog().info("Missing the type");
 			break;
 		}
 	}
 
-	
-	
 	// OTHERS
 	public String getLogName() {
 		return logName;
 	}
 
-
 	public void setLogName(String logName) {
 		this.logName = logName;
 	}
-
 
 }

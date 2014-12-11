@@ -1,4 +1,4 @@
-package main;
+package main_runner;
 /**
 import skeddy.*;
 public class Main {
